@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "artifice:materia_block"
+  },
+  "result": "artifice:materia",
+  "experience": 0.0,
+  "cookingtime": 200
+}

@@ -1,6 +1,7 @@
 
 package com.dndads.artifice;
 
+import com.dndads.artifice.tools.ArtificeItemTier;
 import net.minecraft.entity.ai.attributes.Attribute;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.Attributes;
@@ -25,6 +26,8 @@ public class EventHandler {
         EquipmentSlotType slot = event.getSlotType();
 
         AttributeModifier bepis = new AttributeModifier("damage", 4.0D, AttributeModifier.Operation.MULTIPLY_BASE);
+
+        // Ben was here. \(O.O)/
 
 
         //System.out.println(itemStack.getAttributeModifiers(EquipmentSlotType.MAINHAND));

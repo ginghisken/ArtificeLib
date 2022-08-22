@@ -1,9 +1,12 @@
 package com.dndads.artifice;
 
 import com.dndads.artifice.tools.ArtificeItemTier;
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Multimap;
 import net.minecraft.entity.ai.attributes.Attribute;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.Attributes;
+import net.minecraft.entity.ai.attributes.RangedAttribute;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -17,14 +20,14 @@ public class EventHandler {
     @SubscribeEvent
     public static void updateItemAttributes(ItemAttributeModifierEvent event) {
 
-        System.out.println("The ItemAttributeModifierEvent Fired!");
+        //System.out.println("The ItemAttributeModifierEvent Fired!");
 
         ItemStack itemStack = event.getItemStack();
         Item item = itemStack.getItem();
 
         EquipmentSlotType slot = event.getSlotType();
 
-        AttributeModifier bepis = new AttributeModifier("damage", 4.0D, AttributeModifier.Operation.MULTIPLY_BASE);
+        //AttributeModifier bepis = new AttributeModifier("extraDamage", 100.0D, AttributeModifier.Operation.ADDITION);
 
         // more testing commands
         //System.out.println(itemStack.getAttributeModifiers(EquipmentSlotType.MAINHAND));
@@ -34,13 +37,23 @@ public class EventHandler {
 
         CompoundNBT checkedTag = itemStack.getTag();
 
-        System.out.println(checkedTag);
+
 
         if (checkedTag != null) {
-            if (checkedTag.contains("common")) {
-                itemStack.addAttributeModifier(Attributes.ATTACK_DAMAGE, bepis, EquipmentSlotType.MAINHAND);
+            if (item == Items.DIAMOND_SWORD && slot == EquipmentSlotType.MAINHAND) {
+                if (!checkedTag.contains("Ismodified")) {
+                    //itemStack.addAttributeModifier(Attributes.ATTACK_DAMAGE, bepis, EquipmentSlotType.MAINHAND);
+                    //itemStack.addAttributeModifier(Attributes.ATTACK_DAMAGE, new AttributeModifier("extraDamage", 100.0D, AttributeModifier.Operation.ADDITION), EquipmentSlotType.MAINHAND);
+                    itemStack.getOrCreateTagElement("Ismodified");
+                    System.out.println("A modifier was applied to a diamond sword!");
+                    //System.out.println(itemStack.getDamageValue()); //this outputs the durability damage on an item, not the item's damage output. ben is retarded for suggesting otherwise
 
-                System.out.println("A Modifier Was Applied!");
+
+
+                    AttributeModifier testAttrib = (AttributeModifier) itemStack.getAttributeModifiers(EquipmentSlotType.MAINHAND).get(Attributes.ATTACK_DAMAGE).toArray()[0];
+                    System.out.println(testAttrib.getAmount());
+                    System.out.println(checkedTag);
+                }
             }
         }
 

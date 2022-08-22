@@ -1,4 +1,3 @@
-
 package com.dndads.artifice;
 
 import com.dndads.artifice.tools.ArtificeItemTier;
@@ -27,13 +26,9 @@ public class EventHandler {
 
         AttributeModifier bepis = new AttributeModifier("damage", 4.0D, AttributeModifier.Operation.MULTIPLY_BASE);
 
-        // Ben was here. \(O.O)/
-
-
+        // more testing commands
         //System.out.println(itemStack.getAttributeModifiers(EquipmentSlotType.MAINHAND));
-
-        //if (itemStack.getAttributeModifiers(EquipmentSlotType.MAINHAND) {
-
+        //if (itemStack.getAttributeModifiers(EquipmentSlotType.MAINHAND){}
         // itemStack.getOrCreateTagElement("rarity");
         // itemStack.addAttributeModifier();
 
@@ -41,16 +36,27 @@ public class EventHandler {
 
         System.out.println(checkedTag);
 
-        if (checkedTag.contains("common")) {
-
-            if (item == Items.DIAMOND_SWORD && slot == EquipmentSlotType.MAINHAND) {
-
-                //itemStack.getOrCreateTagElement("common");
-                //itemStack.addAttributeModifier(Attributes.ATTACK_DAMAGE, bepis, EquipmentSlotType.MAINHAND);
+        if (checkedTag != null) {
+            if (checkedTag.contains("common")) {
+                itemStack.addAttributeModifier(Attributes.ATTACK_DAMAGE, bepis, EquipmentSlotType.MAINHAND);
 
                 System.out.println("A Modifier Was Applied!");
             }
         }
+
+        /* old weird stuff
+
+        if (checkedTag.contains("common")) {
+
+            if (item == Items.DIAMOND_SWORD && slot == EquipmentSlotType.MAINHAND) {
+
+                // itemStack.getOrCreateTagElement("common");
+                // itemStack.addAttributeModifier(Attributes.ATTACK_DAMAGE, bepis, EquipmentSlotType.MAINHAND);
+
+                System.out.println("A Modifier Was Applied!");
+            }
+        }
+
+         */
     }
 }
-

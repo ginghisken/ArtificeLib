@@ -16,7 +16,7 @@ public class Artifice
 {
     private static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "artifice";
-    //Orie was here >:)
+    // Orie was here >:)
 
     public Artifice() {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);

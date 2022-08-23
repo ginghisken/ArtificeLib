@@ -15,6 +15,7 @@ import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
 
@@ -51,17 +52,19 @@ public class Materia extends Item {
         // get the player's offhand item's NBT tags.
         CompoundNBT offhandItemNbt = offhandItem.getTag();
 
-        // If the offhand item doesn't have null tags and also doesn't have the 'melded' tag, add the melded tag with a value of true.
-        if (offhandItemNbt != null && offhandItemNbt.contains("melded") == false) {
-            offhandItemNbt.putBoolean("melded", true);
-        }
-
-
         //Run the actual use animation.
         playerIn.startUsingItem(hand);
 
-        //Complete the use successfully.
-        return new ActionResult<ItemStack>(ActionResultType.SUCCESS, mainHandItem);
+        // If the offhand item doesn't have null tags and also doesn't have the 'melded' tag, add the melded tag with a value of true.
+        if (offhandItemNbt != null && offhandItemNbt.contains("melded") == false) {
+            offhandItemNbt.putBoolean("melded", true);
+
+            //Complete the use successfully.
+            return new ActionResult<ItemStack>(ActionResultType.SUCCESS, mainHandItem);
+        } else {
+            // Fail to complete the use.
+            return new ActionResult<ItemStack>(ActionResultType.FAIL, mainHandItem);
+        }
     }
 
 /*
@@ -98,11 +101,11 @@ public class Materia extends Item {
 
     // returns an empty itemstack at the end of use.
     // add conditionals here for not deleting if there is no valid item to apply a modifier to?
-
     @Override
     public ItemStack finishUsingItem(ItemStack stack, World worldIn, LivingEntity entityLiving) {
 
         return ItemStack.EMPTY;
+
     }
 
     /* Maybe useful?

@@ -14,6 +14,7 @@ import org.apache.logging.log4j.Logger;
 @Mod("artifice")
 public class Artifice
 {
+    // Norp was here but he was cooler
     private static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "artifice";
     //Orie was here >:)

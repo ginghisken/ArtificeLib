@@ -6,16 +6,15 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUseContext;
 import net.minecraft.item.UseAction;
 import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Hand;
-import net.minecraft.util.SoundEvents;
+import net.minecraft.util.*;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
 
@@ -47,24 +46,15 @@ public class Materia extends Item {
     public ActionResult<ItemStack> use(World worldIn, PlayerEntity playerIn, Hand hand) {
 
         ItemStack mainHandItem = playerIn.getMainHandItem();
-        ItemStack offhandItem = playerIn.getOffhandItem();
+        // ItemStack offhandItem = playerIn.getOffhandItem();
 
         // get the player's offhand item's NBT tags.
-        CompoundNBT offhandItemNbt = offhandItem.getTag();
+        // CompoundNBT offhandItemNbt = offhandItem.getTag();
 
-        //Run the actual use animation.
+        // Run the actual use animation.
         playerIn.startUsingItem(hand);
 
-        // If the offhand item doesn't have null tags and also doesn't have the 'melded' tag, add the melded tag with a value of true.
-        if (offhandItemNbt != null && offhandItemNbt.contains("melded") == false) {
-            offhandItemNbt.putBoolean("melded", true);
-
-            //Complete the use successfully.
-            return new ActionResult<ItemStack>(ActionResultType.SUCCESS, mainHandItem);
-        } else {
-            // Fail to complete the use.
-            return new ActionResult<ItemStack>(ActionResultType.FAIL, mainHandItem);
-        }
+        return new ActionResult<ItemStack>(ActionResultType.SUCCESS, mainHandItem);
     }
 
 /*
@@ -104,8 +94,51 @@ public class Materia extends Item {
     @Override
     public ItemStack finishUsingItem(ItemStack stack, World worldIn, LivingEntity entityLiving) {
 
-        return ItemStack.EMPTY;
+        ItemStack mainHandItem = entityLiving.getMainHandItem();
+        ItemStack offhandItem = entityLiving.getOffhandItem();
 
+        // Gets the coordinates of the player.
+        double xPos = entityLiving.getX();
+        double yPos = entityLiving.getY();
+        double zPos = entityLiving.getZ();
+
+        // get the player's offhand item's NBT tags.
+        CompoundNBT offhandItemNbt = offhandItem.getTag();
+
+        // If the offhand item doesn't have null tags and also doesn't have the 'melded' tag, add the melded tag with a value of true.
+        if (offhandItemNbt != null && offhandItemNbt.contains("melded") == false) {
+            offhandItemNbt.putBoolean("melded", true);
+
+            // Play a success sound.
+            if (worldIn.isClientSide) {
+                worldIn.playLocalSound(xPos, yPos, zPos, SoundEvents.ANVIL_PLACE, SoundCategory.PLAYERS, 1.0F, 1.0F, false);
+            }
+
+            // Get the player's main hand and move the offhand item into it.
+            // (THIS DOES NOT WORK BUT IT WAS A NICE TRY, revisit later)
+
+            // Hand mainhand = entityLiving.getUsedItemHand();
+            // entityLiving.setItemInHand(mainhand, offhandItem);
+            // PlayerInventory playerInventory = ((PlayerEntity)entityLiving).inventory;
+            // ItemStack selectedItem = playerInventory.getSelected();
+            // int offhandItemSlot = playerInventory.findSlotMatchingItem(offhandItem);
+            // playerInventory.setItem(offhandItemSlot, ItemStack.EMPTY);
+
+
+            // Consume the materia.
+            return ItemStack.EMPTY;
+
+        } else {
+
+            // Play a failure sound.
+            if (worldIn.isClientSide) {
+                worldIn.playLocalSound(xPos, yPos, zPos, SoundEvents.STONE_BUTTON_CLICK_OFF, SoundCategory.PLAYERS, 1.0F, 1.0F, false);
+            }
+
+            // Do not consume the materia.
+            return stack;
+
+        }
     }
 
     /* Maybe useful?
@@ -123,4 +156,5 @@ public class Materia extends Item {
     }
 
      */
+
 }

@@ -50,6 +50,9 @@ public class Materia extends Item {
     public ActionResult<ItemStack> use(World worldIn, PlayerEntity playerIn, Hand hand) {
 
         ItemStack mainHandItem = playerIn.getMainHandItem();
+        ItemStack offHandItem = playerIn.getOffhandItem();
+
+        if (hand == Hand.OFF_HAND) return new ActionResult<ItemStack>(ActionResultType.FAIL, offHandItem);
 
         // Run the actual use animation.
         playerIn.startUsingItem(hand);

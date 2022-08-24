@@ -10,6 +10,7 @@ import com.dndads.artifice.items.MateriaBase;
 import com.dndads.artifice.tools.ArtificeItemTier;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.item.PickaxeItem;
 import net.minecraft.item.SwordItem;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -35,6 +36,9 @@ public class RegistryHandler {
     // Tools
     public static final RegistryObject<SwordItem> MATERIA_SWORD = ITEMS.register("materia_sword", () ->
             new SwordItem(ArtificeItemTier.MATERIA,2, -2.4F, new Item.Properties().tab(Artifice.ARTIFICE_GROUP)));
+
+    public static final RegistryObject<PickaxeItem> MATERIA_PICKAXE = ITEMS.register("materia_pickaxe", () ->
+            new PickaxeItem(ArtificeItemTier.MATERIA,0, -2.8F, new Item.Properties().tab(Artifice.ARTIFICE_GROUP)));
 
     // Blocks
     public static final RegistryObject<Block> MATERIA_BLOCK = BLOCKS.register("materia_block", MateriaBlock::new);

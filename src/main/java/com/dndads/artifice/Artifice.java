@@ -1,10 +1,13 @@
 package com.dndads.artifice;
 
+import com.dndads.artifice.config.ConfigHandler;
 import com.dndads.artifice.util.RegistryHandler;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -27,6 +30,8 @@ public class Artifice
 
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(EventHandler.class);
+
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ConfigHandler.SPEC, "artifice-config.toml");
     }
 
     private void setup(final FMLCommonSetupEvent event) {
@@ -40,5 +45,4 @@ public class Artifice
             return new ItemStack(RegistryHandler.MATERIA.get());
         }
     };
-
 }

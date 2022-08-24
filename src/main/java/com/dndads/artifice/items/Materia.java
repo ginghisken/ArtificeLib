@@ -76,6 +76,12 @@ public class Materia extends Item {
         Item offhandItemTest = offhandItemStack.getItem();
         String offhandItemName = offhandItemTest.toString();
 
+        // Check the name of the main hand item and output as a string.
+        ItemStack mainHandItemStack = entityLiving.getMainHandItem();
+        // Item mainHandItemTest = mainHandItemStack.getItem();
+        // String mainHandItemName = mainHandItemTest.toString();
+
+
         // If the offhand item doesn't have null tags and also doesn't have the 'melded' tag, add the melded tag with a value of true.
         // Also checks if the offhand item contains the ATTACK_DAMAGE attribute in the first place.
         // ALSO checks that you don't have materia in your offhand.
@@ -109,6 +115,7 @@ public class Materia extends Item {
             // int offhandItemSlot = playerInventory.findSlotMatchingItem(offhandItem);
             // playerInventory.setItem(offhandItemSlot, ItemStack.EMPTY);
 
+            System.out.println("It got past the checks.");
             // Consume the materia.
             return ItemStack.EMPTY;
 
@@ -120,8 +127,12 @@ public class Materia extends Item {
             }
 
             // Do not consume the materia.
-            return stack;
 
+            if (offhandItemName == "materia") {
+                return offhandItemStack;
+            } else {
+                return mainHandItemStack;
+            }
         }
     }
 

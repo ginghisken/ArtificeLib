@@ -1,5 +1,4 @@
-{
-  "type": "minecraft:smelting",
+{  "type": "minecraft:smelting",
   "ingredient": {
     "item": "artifice:materia_block"
   },

@@ -4,5 +4,7 @@
 
   "block.artifice.materia_block": "Block of Materia",
 
-  "itemGroup.artificeTab": "Artifice"
+  "itemGroup.artificeTab": "Artifice",
+
+  "tooltip.test": "Eggs"
 }

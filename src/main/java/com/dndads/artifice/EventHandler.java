@@ -12,8 +12,20 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.event.ItemAttributeModifierEvent;
+import net.minecraftforge.event.entity.player.ItemTooltipEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.event.entity.player.PlayerEvent.PlayerLoggedInEvent;
+import net.minecraft.util.text.StringTextComponent;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class EventHandler {
 
@@ -79,4 +91,16 @@ public class EventHandler {
 
          */
     }
+    @OnlyIn(Dist.CLIENT)
+    @SubscribeEvent(priority = EventPriority.HIGH)
+    public static void modifierTooltips(ItemTooltipEvent e) {
+        ItemStack stack = e.getItemStack();
+        if (stack.hasTag() && stack.getTag().contains("melded")) {
+            List<ITextComponent> tips = new ArrayList<>();
+            tips.add(new TranslationTextComponent("tooltip.test"));
+            e.getToolTip().addAll(1, tips);
+        }
+    }
 }
+
+

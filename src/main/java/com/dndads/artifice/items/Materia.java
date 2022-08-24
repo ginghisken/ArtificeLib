@@ -2,6 +2,7 @@ package com.dndads.artifice.items;
 
 import com.dndads.artifice.Artifice;
 import net.minecraft.block.BlockState;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.Attributes;
@@ -15,10 +16,13 @@ import net.minecraft.item.ItemUseContext;
 import net.minecraft.item.UseAction;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.*;
+import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
 
+import javax.annotation.Nullable;
 import javax.swing.*;
+import java.util.List;
 import java.util.Objects;
 
 public class Materia extends Item {
@@ -100,5 +104,17 @@ public class Materia extends Item {
             return stack;
 
         }
+    }
+
+    // Add a tooltip.
+    @Override
+    public void appendHoverText(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+        tooltip.add(new StringTextComponent("\u00A77" + "Hold an item in your off-hand to meld!"));
+    }
+
+    // Make it sparkle.
+    @Override
+    public boolean isFoil(ItemStack stack) {
+        return true;
     }
 }

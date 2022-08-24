@@ -49,19 +49,48 @@ public class Materia extends Item {
     @Override
     public ActionResult<ItemStack> use(World worldIn, PlayerEntity playerIn, Hand hand) {
 
+        // Get the coordinates of the player.
+        double xPos = playerIn.getX();
+        double yPos = playerIn.getY();
+        double zPos = playerIn.getZ();
+
+        //Check the name of the offhand item and output as a string.
+        ItemStack offhandItemStack = playerIn.getOffhandItem();
+        Item offhandItemTest = offhandItemStack.getItem();
+        String offhandItemName = offhandItemTest.toString();
+
         ItemStack mainHandItem = playerIn.getMainHandItem();
         ItemStack offHandItem = playerIn.getOffhandItem();
 
-        if (hand == Hand.OFF_HAND) return new ActionResult<ItemStack>(ActionResultType.FAIL, offHandItem);
+        if (hand == Hand.OFF_HAND) {
+            // Play a failure sound.
+            if (worldIn.isClientSide) {
+                worldIn.playLocalSound(xPos, yPos, zPos, SoundEvents.HORSE_DEATH, SoundCategory.PLAYERS, 1.0F, 1.0F, false);
+            }
 
-        // Run the actual use animation.
-        playerIn.startUsingItem(hand);
+            playerIn.hurt(DamageSource.ANVIL, 5.0f);
 
-        return new ActionResult<ItemStack>(ActionResultType.SUCCESS, mainHandItem);
+            return new ActionResult<ItemStack>(ActionResultType.FAIL, offHandItem);
+        }
+
+        if (offhandItemName != "materia") {
+
+            // Run the actual use animation.
+            playerIn.startUsingItem(hand);
+
+            return new ActionResult<ItemStack>(ActionResultType.SUCCESS, mainHandItem);
+
+        } else{
+
+            return new ActionResult<ItemStack>(ActionResultType.FAIL, mainHandItem);
+
+        }
     }
 
     @Override
     public ItemStack finishUsingItem(ItemStack stack, World worldIn, LivingEntity entityLiving) {
+
+        System.out.println("finishUsingItem fired.");
 
         ItemStack mainHandItem = entityLiving.getMainHandItem();
         ItemStack offhandItem = entityLiving.getOffhandItem();
@@ -123,6 +152,8 @@ public class Materia extends Item {
             return ItemStack.EMPTY;
 
         } else {
+
+            System.out.println("else statement fired.");
 
             // Play a failure sound.
             if (worldIn.isClientSide) {

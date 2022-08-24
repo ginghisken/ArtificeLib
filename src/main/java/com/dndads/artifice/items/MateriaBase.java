@@ -18,11 +18,17 @@ public abstract class MateriaBase extends Item {
         );
     }
 
+    // Sets the animation that plays on use to that of a bow.
     @Override
-    public abstract UseAction getUseAnimation(ItemStack stack);
+    public UseAction getUseAnimation(ItemStack stack) {
+        return UseAction.BOW;
+    }
 
+    // Number of ticks it takes to activate, 20 ticks per second.
     @Override
-    public abstract int getUseDuration(ItemStack stack);
+    public int getUseDuration(ItemStack stack) {
+        return 30;
+    }
 
     @Override
     public ActionResult<ItemStack> use(World worldIn, PlayerEntity playerIn, Hand hand) {
@@ -90,5 +96,11 @@ public abstract class MateriaBase extends Item {
                 return mainHandItemStack;
             }
         }
+    }
+
+    // Make it sparkle.
+    @Override
+    public boolean isFoil(ItemStack stack) {
+        return true;
     }
 }

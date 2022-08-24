@@ -23,18 +23,6 @@ public class AttackMateria extends MateriaBase {
         );
     }
 
-    // Sets the animation that plays on use to that of a bow.
-    @Override
-    public UseAction getUseAnimation(ItemStack stack) {
-        return UseAction.BOW;
-    }
-
-    // Number of ticks it takes to activate, 20 ticks per second.
-    @Override
-    public int getUseDuration(ItemStack stack) {
-        return 30;
-    }
-
     // Attack Materia can be used only on weapons.
     @Override
     boolean isValidItemForMeld(ItemStack stack) {
@@ -60,9 +48,5 @@ public class AttackMateria extends MateriaBase {
         tooltip.add(new StringTextComponent("\u00A77" + "Hold an item in your off-hand to meld!"));
     }
 
-    // Make it sparkle.
-    @Override
-    public boolean isFoil(ItemStack stack) {
-        return true;
-    }
+
 }

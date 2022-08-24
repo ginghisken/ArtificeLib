@@ -1,7 +1,6 @@
 package com.dndads.artifice.config;
 
 import net.minecraftforge.common.ForgeConfigSpec;
-
 import java.util.ArrayList;
 
 public class ConfigHandler {
@@ -32,12 +31,10 @@ public class ConfigHandler {
         swordsListDefault.add("minecraft:netherite_sword");
         swordsListDefault.add("artifice:materia_sword");
 
-        swordsList = BUILDER.comment("This is a list of all sword names. (Default Value: test)").define("Swords List", swordsListDefault);
+        swordsList = BUILDER.comment("This is a list of all sword names. (Default Values: " + swordsListDefault).define("Swords List", swordsListDefault);
         // Can be gotten anywhere via ConfigHandler.swordsList.get()
 
         BUILDER.pop();
         SPEC = BUILDER.build();
     }
-
-
 }

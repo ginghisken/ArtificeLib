@@ -51,23 +51,21 @@ public abstract class MateriaBase extends Item {
     @Override
     public ItemStack finishUsingItem(ItemStack stack, World worldIn, LivingEntity entityLiving) {
 
-        ItemStack offhandItem = entityLiving.getOffhandItem();
-
         // Get the coordinates of the player.
         double xPos = entityLiving.getX();
         double yPos = entityLiving.getY();
         double zPos = entityLiving.getZ();
 
-        // Get the player's offhand item's NBT tags.
-        CompoundNBT offhandItemNbt = offhandItem.getTag();
-
-        //Check the name of the offhand item and output as a string.
+        // Get the offhand item stack, as well as its associated item and name.
         ItemStack offhandItemStack = entityLiving.getOffhandItem();
         Item offhandItemTest = offhandItemStack.getItem();
         String offhandItemName = offhandItemTest.toString();
 
-        // Check the name of the main hand item and output as a string.
+        // Get the main hand item stack.
         ItemStack mainHandItemStack = entityLiving.getMainHandItem();
+
+        // Get the player's offhand item's NBT tags.
+        CompoundNBT offhandItemNbt = offhandItemStack.getTag();
 
         // Checks if valid item to use materia on.
         if (this.isValidItemForMeld(offhandItemStack)) {

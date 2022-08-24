@@ -10,7 +10,7 @@ public class MateriaHelper {
     // Return true if an item can be melded and false if it cannot.
     public static boolean itemCanBeMelded(ItemStack stack) {
         CompoundNBT tags = stack.getTag();
-        if (tags.contains("melded") || stack.getItem().toString().contains("materia")) return false;
+        if ((tags != null && tags.contains("melded")) || stack.getItem().toString().contains("materia")) return false;
 
         return true;
     }

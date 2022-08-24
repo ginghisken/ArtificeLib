@@ -1,16 +1,16 @@
 package com.dndads.artifice.util;
 
 import com.dndads.artifice.Artifice;
-//import com.dndads.artifice.EventHandler;
+import com.dndads.artifice.items.AttackMateria;
 import com.dndads.artifice.blocks.BlockItemBase;
 import com.dndads.artifice.blocks.MateriaBlock;
 import com.dndads.artifice.items.ItemBase;
 import com.dndads.artifice.items.Materia;
+import com.dndads.artifice.items.MateriaBase;
 import com.dndads.artifice.tools.ArtificeItemTier;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.SwordItem;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
@@ -29,6 +29,8 @@ public class RegistryHandler {
     // Items
     public static final RegistryObject<Materia> MATERIA = ITEMS.register("materia", Materia::new);
     public static final RegistryObject<Item> MATERIA2 = ITEMS.register("materia2", ItemBase::new);
+
+    public static final RegistryObject<MateriaBase> MATERIA_ATTACK = ITEMS.register("materia_attack", AttackMateria::new);
 
     // Tools
     public static final RegistryObject<SwordItem> MATERIA_SWORD = ITEMS.register("materia_sword", () ->

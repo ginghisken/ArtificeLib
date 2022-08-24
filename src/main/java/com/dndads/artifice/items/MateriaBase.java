@@ -88,11 +88,7 @@ public abstract class MateriaBase extends Item {
             }
 
             // Do not consume the materia.
-            if (offhandItemName == "materia") {
-                return offhandItemStack;
-            } else {
-                return mainHandItemStack;
-            }
+            return mainHandItemStack;
         }
     }
 

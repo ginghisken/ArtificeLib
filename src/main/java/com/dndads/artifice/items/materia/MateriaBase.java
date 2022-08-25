@@ -1,4 +1,4 @@
-package com.dndads.artifice.items;
+package com.dndads.artifice.items.materia;
 
 import com.dndads.artifice.Artifice;
 import net.minecraft.entity.LivingEntity;

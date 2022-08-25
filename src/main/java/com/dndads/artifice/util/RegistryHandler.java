@@ -1,12 +1,12 @@
 package com.dndads.artifice.util;
 
 import com.dndads.artifice.Artifice;
-import com.dndads.artifice.items.AttackMateria;
+import com.dndads.artifice.items.materia.AttackMateria;
 import com.dndads.artifice.blocks.BlockItemBase;
 import com.dndads.artifice.blocks.MateriaBlock;
 import com.dndads.artifice.items.ItemBase;
-import com.dndads.artifice.items.Materia;
-import com.dndads.artifice.items.MateriaBase;
+import com.dndads.artifice.items.materia.Materia;
+import com.dndads.artifice.items.materia.MateriaBase;
 import com.dndads.artifice.tools.ArtificeItemTier;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;

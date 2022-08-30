@@ -80,8 +80,9 @@ dependencies {
     minecraft 'net.minecraftforge:forge:1.16.5-36.2.34'
 
     implementation fg.deobf("curse.maven:elenaidodge2-442962:3343309")
-    implementation fg.deobf("curse.maven:placebo-283644:3750838")
-    implementation fg.deobf("curse.maven:apotheosis-313970:3936649")
+//    implementation fg.deobf("curse.maven:placebo-283644:3750838")
+//    implementation fg.deobf("curse.maven:apotheosis-313970:3936649")
+    implementation fileTree(dir: 'build/libs', include: '*.jar') // used to get the dev jars as dependencies
 
 }
 

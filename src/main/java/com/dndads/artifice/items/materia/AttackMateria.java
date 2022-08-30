@@ -10,6 +10,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
+import shadows.apotheosis.deadly.affix.Affix;
+import shadows.apotheosis.deadly.affix.AffixHelper;
+import shadows.apotheosis.deadly.affix.Affixes;
+import shadows.apotheosis.deadly.affix.impl.melee.FireDamageAffix;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -39,6 +43,8 @@ public class AttackMateria extends MateriaBase {
 
         // Set new value.
         stack.addAttributeModifier(Attributes.ATTACK_DAMAGE, new AttributeModifier("extraDamage", newDamage, AttributeModifier.Operation.ADDITION), EquipmentSlotType.MAINHAND);
+        // APOTHEOSIS!
+        AffixHelper.applyAffix(stack, Affixes.FIRE_DAMAGE, 3.0F);
     }
 
     // Add a tooltip.

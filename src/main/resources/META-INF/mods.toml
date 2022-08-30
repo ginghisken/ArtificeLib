@@ -13,14 +13,14 @@ version="1.16.5-1.0.0" #mandatory
 
 displayName="Artifice" #mandatory
 
-logoFile="examplemod.png" #optional
+logoFile="logo.png" #optional
 
 credits="Thanks for this example mod goes to Java" #optional
 
 authors="KingQuail, Ginghis, Theroson" #optional
 
 description='''
-Fusing RPG mechanics with techological progression.
+Fusing RPG mechanics with technological progression.
 '''
 
 [[dependencies.examplemod]] #optional

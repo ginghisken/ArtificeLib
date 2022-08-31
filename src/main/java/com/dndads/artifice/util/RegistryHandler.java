@@ -1,6 +1,8 @@
 package com.dndads.artifice.util;
 
 import com.dndads.artifice.Artifice;
+import com.dndads.artifice.items.jobstone.CharmTestJobstone;
+import com.dndads.artifice.items.jobstone.JobstoneBase;
 import com.dndads.artifice.items.materia.AttackMateria;
 import com.dndads.artifice.blocks.BlockItemBase;
 import com.dndads.artifice.blocks.MateriaBlock;
@@ -28,10 +30,13 @@ public class RegistryHandler {
     }
 
     // Items
+    // Materia
     public static final RegistryObject<Materia> MATERIA = ITEMS.register("materia", Materia::new);
     public static final RegistryObject<Item> MATERIA2 = ITEMS.register("materia2", ItemBase::new);
 
     public static final RegistryObject<MateriaBase> MATERIA_ATTACK = ITEMS.register("materia_attack", AttackMateria::new);
+    // Jobstones
+    public static final RegistryObject<JobstoneBase> JOBSTONE_TEST = ITEMS.register("jobstone_test", CharmTestJobstone::new);
 
     // Tools
     public static final RegistryObject<SwordItem> MATERIA_SWORD = ITEMS.register("materia_sword", () ->

@@ -1,6 +1,7 @@
 package com.dndads.artifice.items.materia;
 
 import com.dndads.artifice.Artifice;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -8,14 +9,21 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.UseAction;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.*;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
 
+import javax.annotation.Nullable;
+import java.util.List;
+
 public abstract class MateriaBase extends Item {
-    public MateriaBase(Item.Properties p) {
+    protected String textOnHover;
+    public MateriaBase(Item.Properties p, String hover_text) {
         super(new Item.Properties()
                 .stacksTo(1)
                 .tab(Artifice.ARTIFICE_GROUP)
         );
+        this.textOnHover = hover_text;
     }
 
     // Sets the animation that plays on use to that of a bow.
@@ -96,5 +104,14 @@ public abstract class MateriaBase extends Item {
     @Override
     public boolean isFoil(ItemStack stack) {
         return true;
+    }
+
+    // Adds the specified hover text to the item. Automatically splits the hover text on newline characters.
+    @Override
+    public void appendHoverText(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+        String[] t = textOnHover.split("\n");
+        for(String s : t) {
+            tooltip.add(new StringTextComponent("\u00A77" + s));
+        }
     }
 }

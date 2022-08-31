@@ -19,10 +19,13 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class AttackMateria extends MateriaBase {
+    private static String hover_text = "Hold a weapon in your off-hand to meld.\n" +
+            "Adds bonus fire and physical damage.";
     public AttackMateria() {
         super(new Item.Properties()
                 .stacksTo(1)
-                .tab(Artifice.ARTIFICE_GROUP)
+                .tab(Artifice.ARTIFICE_GROUP),
+                hover_text
         );
     }
 
@@ -46,12 +49,5 @@ public class AttackMateria extends MateriaBase {
         // APOTHEOSIS!
         AffixHelper.applyAffix(stack, Affixes.FIRE_DAMAGE, 3.0F);
     }
-
-    // Add a tooltip.
-    @Override
-    public void appendHoverText(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-        tooltip.add(new StringTextComponent("\u00A77" + "Hold an item in your off-hand to meld!"));
-    }
-
 
 }

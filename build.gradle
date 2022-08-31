@@ -74,15 +74,21 @@ repositories {
              includeGroup "curse.maven"
          }
     }
+    maven {
+        url = "https://maven.theillusivec4.top/"
+    }
 }
 
 dependencies {
     minecraft 'net.minecraftforge:forge:1.16.5-36.2.34'
 
     implementation fg.deobf("curse.maven:elenaidodge2-442962:3343309")
-//    implementation fg.deobf("curse.maven:placebo-283644:3750838")
-//    implementation fg.deobf("curse.maven:apotheosis-313970:3936649")
-    implementation fileTree(dir: 'build/libs', include: '*.jar') // used to get the dev jars as dependencies
+
+    runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.16.5-4.0.8.2")
+    compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.16.5-4.0.8.2:api")
+    // used to get the dev jars as dependencies
+    implementation fileTree(dir: 'build/libs', include: '*.jar')
+
 
 }
 

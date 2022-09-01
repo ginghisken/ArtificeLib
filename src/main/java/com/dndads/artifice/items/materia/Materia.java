@@ -122,15 +122,23 @@ public class Materia extends Item {
             }
 
             // Get and record the offhand weapon's base damage.
-            AttributeModifier testAttrib = (AttributeModifier) offhandItem.getAttributeModifiers(EquipmentSlotType.MAINHAND).get(Attributes.ATTACK_DAMAGE).toArray()[0];
-            double baseDamageAmount = testAttrib.getAmount();
-            System.out.println("base: " + baseDamageAmount);
+            AttributeModifier testAttackDamageAttrib = (AttributeModifier) offhandItem.getAttributeModifiers(EquipmentSlotType.MAINHAND).get(Attributes.ATTACK_DAMAGE).toArray()[0];
+            double baseDamageAmount = testAttackDamageAttrib.getAmount();
+            System.out.println("base attack: " + baseDamageAmount);
+
+            // Get and record the offhand weapon's base speed.
+            AttributeModifier testAttackSpeedAttrib = (AttributeModifier) offhandItem.getAttributeModifiers(EquipmentSlotType.MAINHAND).get(Attributes.ATTACK_SPEED).toArray()[0];
+            double baseSpeedAmount = testAttackSpeedAttrib.getAmount();
+            System.out.println("base speed: " + baseSpeedAmount);
 
             // Add 5 to the offhand weapon's base damage.
             double newDamageAmount = baseDamageAmount + 5;
 
             // Add a new modifier that overwrites the old damage with the new higher value.
             offhandItem.addAttributeModifier(Attributes.ATTACK_DAMAGE, new AttributeModifier("extraDamage", newDamageAmount, AttributeModifier.Operation.ADDITION), EquipmentSlotType.MAINHAND);
+
+            // Add a new modifier that preserves the original attack speed.
+            offhandItem.addAttributeModifier(Attributes.ATTACK_SPEED, new AttributeModifier("extraSpeed", baseSpeedAmount, AttributeModifier.Operation.ADDITION), EquipmentSlotType.MAINHAND);
 
             // Get the player's main hand and move the offhand item into it.
             // >>>>>(THIS DOES NOT WORK BUT IT WAS A NICE TRY, revisit later)<<<<<

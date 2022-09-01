@@ -18,7 +18,7 @@ apply plugin: 'org.spongepowered.mixin'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-archivesBaseName = 'artifice-1.0'
+archivesBaseName = 'artifice-1.1'
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(8) // Mojang ships Java 8 to end users, so your mod should target Java 8.
 
@@ -86,7 +86,7 @@ dependencies {
 
     runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.16.5-4.0.8.2")
     compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.16.5-4.0.8.2:api")
-    // used to get the dev jars as dependencies
+    // used to get the dev jars as dependencies.
     implementation fileTree(dir: 'build/libs', include: '*.jar')
 
 

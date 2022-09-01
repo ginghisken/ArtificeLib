@@ -40,12 +40,22 @@ public class AttackMateria extends MateriaBase {
         // Get the weapon's base damage.
         AttributeModifier attackAttribute = (AttributeModifier) stack.getAttributeModifiers(EquipmentSlotType.MAINHAND).get(Attributes.ATTACK_DAMAGE).toArray()[0];
 
+        // Get the weapon's base speed.
+        AttributeModifier speedAttribute = (AttributeModifier) stack.getAttributeModifiers(EquipmentSlotType.MAINHAND).get(Attributes.ATTACK_SPEED).toArray()[0];
+
         // Add 5 damage to weapon's base damage.
         double baseDamage = attackAttribute.getAmount();
         double newDamage = baseDamage + 5;
 
-        // Set new value.
+        // Read the weapon's base speed value for later use.
+        double baseSpeed = speedAttribute.getAmount();
+
+        // Set new attack damage attribute with modified value.
         stack.addAttributeModifier(Attributes.ATTACK_DAMAGE, new AttributeModifier("extra_damage", newDamage, AttributeModifier.Operation.ADDITION), EquipmentSlotType.MAINHAND);
+
+        // Set new attack speed attribute with preserved value.
+        stack.addAttributeModifier(Attributes.ATTACK_SPEED, new AttributeModifier("extra_speed", baseSpeed, AttributeModifier.Operation.ADDITION), EquipmentSlotType.MAINHAND);
+
         // APOTHEOSIS!
         AffixHelper.applyAffix(stack, Affixes.FIRE_DAMAGE, 3.0F);
     }

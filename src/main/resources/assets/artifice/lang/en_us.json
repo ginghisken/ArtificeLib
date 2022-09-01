@@ -2,7 +2,11 @@
   "item.artifice.materia": "Materia",
   "item.artifice.materia2": "Materia2",
   "item.artifice.materia_attack": "Attack Materia",
+  "item.artifice.materia_dodge": "Dodge Materia",
+
   "item.artifice.jobstone_test": "Test Jobstone",
+  "item.artifice.jobstone_scout_tier1": "Scout Jobstone: Tier 1",
+  "item.artifice.jobstone_scout_tier2": "Scout Jobstone: Tier 2",
 
   "item.artifice.materia_sword": "Materia Sword",
   "item.artifice.materia_pickaxe": "Materia Pickaxe",
@@ -11,5 +15,10 @@
 
   "itemGroup.artificeTab": "Artifice",
 
-  "tooltip.test": "\u00A77Eggs"
+  "affix.list.tooltip": "Affixes",
+
+  "materia.extra_damage.name": "Attack Up",
+  "materia.easy_dodge.name": "Easy Dodge",
+
+  "materia.apotheosis:fire_damage.name": "Flaming"
 }

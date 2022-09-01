@@ -3,8 +3,7 @@ package com.dndads.artifice.items.jobstone;
 import com.dndads.artifice.Artifice;
 
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
+import net.minecraft.item.*;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
@@ -15,11 +14,11 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 // Base template to expand on for all jobstones
-public abstract class JobstoneBase extends Item {
+public abstract class JobstoneBase extends TieredItem {
     // Text that appears when the item is hovered. Filled in by the constructor.
     protected String textOnHover;
-    public JobstoneBase(Item.Properties p, String hover_text) {
-        super(new Item.Properties()
+    public JobstoneBase(IItemTier tier, Item.Properties p, String hover_text) {
+        super(tier, new Item.Properties()
                 .stacksTo(1)
                 .tab(Artifice.ARTIFICE_GROUP)
         );

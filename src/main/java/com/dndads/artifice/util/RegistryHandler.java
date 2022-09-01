@@ -1,17 +1,20 @@
 package com.dndads.artifice.util;
 
 import com.dndads.artifice.Artifice;
-import com.dndads.artifice.items.jobstone.CharmTestJobstone;
+import com.dndads.artifice.items.jobstone.JobstoneScout;
+import com.dndads.artifice.items.jobstone.JobstoneTest;
 import com.dndads.artifice.items.jobstone.JobstoneBase;
 import com.dndads.artifice.items.materia.AttackMateria;
 import com.dndads.artifice.blocks.BlockItemBase;
 import com.dndads.artifice.blocks.MateriaBlock;
 import com.dndads.artifice.items.ItemBase;
+import com.dndads.artifice.items.materia.DodgeMateria;
 import com.dndads.artifice.items.materia.Materia;
 import com.dndads.artifice.items.materia.MateriaBase;
 import com.dndads.artifice.tools.ArtificeItemTier;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemTier;
 import net.minecraft.item.PickaxeItem;
 import net.minecraft.item.SwordItem;
 import net.minecraftforge.fml.RegistryObject;
@@ -35,8 +38,12 @@ public class RegistryHandler {
     public static final RegistryObject<Item> MATERIA2 = ITEMS.register("materia2", ItemBase::new);
 
     public static final RegistryObject<MateriaBase> MATERIA_ATTACK = ITEMS.register("materia_attack", AttackMateria::new);
+    public static final RegistryObject<MateriaBase> MATERIA_DODGE = ITEMS.register("materia_dodge", DodgeMateria::new);
+
     // Jobstones
-    public static final RegistryObject<JobstoneBase> JOBSTONE_TEST = ITEMS.register("jobstone_test", CharmTestJobstone::new);
+    public static final RegistryObject<JobstoneBase> JOBSTONE_TEST = ITEMS.register("jobstone_test", JobstoneTest::new);
+    public static final RegistryObject<JobstoneBase> JOBSTONE_SCOUT_TIER1 = ITEMS.register("jobstone_scout_tier1", () -> new JobstoneScout(ItemTier.STONE));
+    public static final RegistryObject<JobstoneBase> JOBSTONE_SCOUT_TIER2 = ITEMS.register("jobstone_scout_tier2", () -> new JobstoneScout(ItemTier.IRON));
 
     // Tools
     public static final RegistryObject<SwordItem> MATERIA_SWORD = ITEMS.register("materia_sword", () ->

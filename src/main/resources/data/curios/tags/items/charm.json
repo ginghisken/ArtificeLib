@@ -1,6 +1,7 @@
 {
   "replace": "false",
   "values": [
-    "artifice:jobstone_test"
+    "artifice:jobstone_test",
+    "artifice:jobstone_scout_tier1", "artifice:jobstone_scout_tier2"
   ]
 }

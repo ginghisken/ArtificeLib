@@ -1,10 +1,13 @@
 package com.dndads.artifice;
 
 import com.dndads.artifice.config.ConfigHandler;
+import com.dndads.artifice.event.EventHandler;
+import com.dndads.artifice.event.MateriaHandler;
+import com.dndads.artifice.event.WeaponHandler;
+import com.dndads.artifice.items.jobstone.JobstoneScout;
 import com.dndads.artifice.util.RegistryHandler;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -16,7 +19,6 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import top.theillusivec4.curios.api.SlotTypeMessage;
-import top.theillusivec4.curios.api.SlotTypePreset;
 
 @Mod("artifice")
 public class Artifice
@@ -33,7 +35,10 @@ public class Artifice
         RegistryHandler.init();
 
         MinecraftForge.EVENT_BUS.register(this);
+        // Event handlers
         MinecraftForge.EVENT_BUS.register(EventHandler.class);
+        MinecraftForge.EVENT_BUS.register(WeaponHandler.class);
+        MinecraftForge.EVENT_BUS.register(MateriaHandler.class);
 
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ConfigHandler.SPEC, "artifice-config.toml");
     }

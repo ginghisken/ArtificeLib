@@ -10,6 +10,7 @@ import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemTier;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.SoundEvents;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
@@ -19,13 +20,13 @@ import top.theillusivec4.curios.api.type.capability.ICurio;
 import javax.annotation.Nonnull;
 import java.util.UUID;
 
-public class CharmTestJobstone extends JobstoneBase {
+public class JobstoneTest extends JobstoneBase {
     // Text that appears when the item is hovered.
     private static String hover_text = "";
 
     // Constructor
-    public CharmTestJobstone() {
-        super(new Item.Properties()
+    public JobstoneTest() {
+        super(ItemTier.STONE, new Item.Properties()
                 .stacksTo(1)
                 .tab(Artifice.ARTIFICE_GROUP),
                 hover_text
@@ -48,9 +49,10 @@ public class CharmTestJobstone extends JobstoneBase {
                 Multimap<Attribute, AttributeModifier> attributes = LinkedHashMultimap.create();
                 // Put a new attribute mod (this is what the item actually changes)
                 attributes.put(Attributes.ATTACK_SPEED,     // What attribute is being modified
-                        // Attribute Modifier: UUID (whatever item it is), name of the change, value of the modification, modification type
+                        // Attribute Modifier: UUID (whatever slot this jobstone is in), name of the change, value of the modification, modification type
                         new AttributeModifier(uuid, "artifice:attack_speed_bonus", 0.5,
                                 AttributeModifier.Operation.MULTIPLY_TOTAL));
+
                 // Return this map.
                 return attributes;
             }

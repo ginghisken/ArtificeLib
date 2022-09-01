@@ -45,7 +45,7 @@ public class AttackMateria extends MateriaBase {
         double newDamage = baseDamage + 5;
 
         // Set new value.
-        stack.addAttributeModifier(Attributes.ATTACK_DAMAGE, new AttributeModifier("extraDamage", newDamage, AttributeModifier.Operation.ADDITION), EquipmentSlotType.MAINHAND);
+        stack.addAttributeModifier(Attributes.ATTACK_DAMAGE, new AttributeModifier("extra_damage", newDamage, AttributeModifier.Operation.ADDITION), EquipmentSlotType.MAINHAND);
         // APOTHEOSIS!
         AffixHelper.applyAffix(stack, Affixes.FIRE_DAMAGE, 3.0F);
     }

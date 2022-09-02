@@ -18,8 +18,8 @@ import top.theillusivec4.curios.api.type.capability.ICurio;
 import javax.annotation.Nonnull;
 
 public class JobstoneScout extends JobstoneBase {
-    private static final String text = JobstoneTextHelper.getText("scout")[0];
-    private static final String shift_text = JobstoneTextHelper.getText("scout")[1];
+    private static final String text = JobstoneHelper.getText("scout")[0];
+    private static final String shift_text = JobstoneHelper.getText("scout")[1];
 
     public JobstoneScout(IItemTier tier) {
         super(tier, new Item.Properties()

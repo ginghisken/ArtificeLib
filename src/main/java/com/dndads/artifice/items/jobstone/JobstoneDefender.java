@@ -16,8 +16,8 @@ import javax.annotation.Nonnull;
 
 public class JobstoneDefender extends JobstoneBase {
 
-    private static final String text = JobstoneTextHelper.getText("defender")[0];
-    private static final String shift_text = JobstoneTextHelper.getText("defender")[1];
+    private static final String text = JobstoneHelper.getText("defender")[0];
+    private static final String shift_text = JobstoneHelper.getText("defender")[1];
 
     public JobstoneDefender() {
         super(ItemTier.STONE, new Item.Properties()

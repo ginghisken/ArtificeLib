@@ -1,11 +1,9 @@
 package com.dndads.artifice.items.jobstone;
 
-import java.lang.reflect.Array;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-public class JobstoneTextHelper {
+public class JobstoneHelper {
     private final static Map<String, String[]> compendium = new HashMap<String, String[]>() {{
 //        Use this to add the Jobstone text for items
 

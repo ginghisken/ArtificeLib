@@ -1,6 +1,7 @@
 package com.dndads.artifice.util;
 
 import com.dndads.artifice.Artifice;
+import com.dndads.artifice.items.jobstone.JobstoneDefender;
 import com.dndads.artifice.items.jobstone.JobstoneScout;
 import com.dndads.artifice.items.jobstone.JobstoneTest;
 import com.dndads.artifice.items.jobstone.JobstoneBase;
@@ -32,7 +33,7 @@ public class RegistryHandler {
         BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
     }
 
-    // Items
+    /* Items */
     // Materia
     public static final RegistryObject<Materia> MATERIA = ITEMS.register("materia", Materia::new);
     public static final RegistryObject<Item> MATERIA2 = ITEMS.register("materia2", ItemBase::new);
@@ -45,6 +46,8 @@ public class RegistryHandler {
     public static final RegistryObject<JobstoneBase> JOBSTONE_SCOUT_TIER1 = ITEMS.register("jobstone_scout_tier1", () -> new JobstoneScout(ItemTier.STONE));
     public static final RegistryObject<JobstoneBase> JOBSTONE_SCOUT_TIER2 = ITEMS.register("jobstone_scout_tier2", () -> new JobstoneScout(ItemTier.IRON));
 
+    public static final RegistryObject<JobstoneBase> JOBSTONE_DEFENDER = ITEMS.register("jobstone_defender", () -> new JobstoneDefender());
+
     // Tools
     public static final RegistryObject<SwordItem> MATERIA_SWORD = ITEMS.register("materia_sword", () ->
             new SwordItem(ArtificeItemTier.MATERIA,2, -2.4F, new Item.Properties().tab(Artifice.ARTIFICE_GROUP)));
@@ -52,7 +55,7 @@ public class RegistryHandler {
     public static final RegistryObject<PickaxeItem> MATERIA_PICKAXE = ITEMS.register("materia_pickaxe", () ->
             new PickaxeItem(ArtificeItemTier.MATERIA,0, -2.8F, new Item.Properties().tab(Artifice.ARTIFICE_GROUP)));
 
-    // Blocks
+    /* Blocks */
     public static final RegistryObject<Block> MATERIA_BLOCK = BLOCKS.register("materia_block", MateriaBlock::new);
 
     // Block Items

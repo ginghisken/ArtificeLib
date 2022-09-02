@@ -13,23 +13,26 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemTier;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.SoundEvents;
+import net.minecraft.util.text.ITextComponent;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.type.capability.ICurio;
 
 import javax.annotation.Nonnull;
+import java.util.List;
 import java.util.UUID;
 
 public class JobstoneTest extends JobstoneBase {
     // Text that appears when the item is hovered.
-    private static String hover_text = "";
+    private static String text = JobstoneTextHelper.getText("tester")[0];
+    private static String shift_text = JobstoneTextHelper.getText("tester")[1];
 
     // Constructor
     public JobstoneTest() {
         super(ItemTier.STONE, new Item.Properties()
                 .stacksTo(1)
                 .tab(Artifice.ARTIFICE_GROUP),
-                hover_text
+                text, shift_text
         );
     }
 

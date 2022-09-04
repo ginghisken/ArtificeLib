@@ -37,6 +37,14 @@ public class RegistryHandler {
     public static final RegistryObject<Materia> MATERIA = ITEMS.register("materia", Materia::new);
     public static final RegistryObject<Item> MATERIA2 = ITEMS.register("materia2", ItemBase::new);
 
+    // texture testing
+    public static final RegistryObject<Materia> MATERIACYANT0 = ITEMS.register("materiacyant0", Materia::new);
+    public static final RegistryObject<Materia> MATERIACYANT1 = ITEMS.register("materiacyant1", Materia::new);
+    public static final RegistryObject<Materia> MATERIACYANT2 = ITEMS.register("materiacyant2", Materia::new);
+    public static final RegistryObject<Materia> MATERIACYANT3 = ITEMS.register("materiacyant3", Materia::new);
+    public static final RegistryObject<Materia> MATERIACYANT4 = ITEMS.register("materiacyant4", Materia::new);
+    public static final RegistryObject<Materia> MATERIACYANT5 = ITEMS.register("materiacyant5", Materia::new);
+
     public static final RegistryObject<MateriaBase> MATERIA_ATTACK = ITEMS.register("materia_attack", AttackMateria::new);
     public static final RegistryObject<MateriaBase> MATERIA_DODGE = ITEMS.register("materia_dodge", DodgeMateria::new);
 

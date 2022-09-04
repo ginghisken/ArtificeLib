@@ -51,7 +51,7 @@ public class JobstoneScout extends JobstoneBase {
 
     @Override
     public ICapabilityProvider initCapabilities(ItemStack stack, CompoundNBT unused) {
-        // Create the provider using a new ICurio (interface for Curio in particular.
+        // Create the provider using a new ICurio (interface for Curio in particular).
         return CurioItemCapability.createProvider(new ICurio() {
 
             @Override

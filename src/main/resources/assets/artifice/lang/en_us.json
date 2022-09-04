@@ -4,6 +4,13 @@
   "item.artifice.materia_attack": "Attack Materia",
   "item.artifice.materia_dodge": "Dodge Materia",
 
+  "item.artifice.materiacyant0": "Fragmented Cyan Materia",
+  "item.artifice.materiacyant1": "Rough Cyan Materia",
+  "item.artifice.materiacyant2": "Flawed Cyan Materia",
+  "item.artifice.materiacyant3": "Pure Cyan Materia",
+  "item.artifice.materiacyant4": "Radiant Cyan Materia",
+  "item.artifice.materiacyant5": "Refulgent Cyan Materia",
+
   "item.artifice.jobstone_test": "Test Jobstone",
   "item.artifice.jobstone_scout_tier1": "Scout Jobstone: Tier 1",
   "item.artifice.jobstone_scout_tier2": "Scout Jobstone: Tier 2",

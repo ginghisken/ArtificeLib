@@ -22,14 +22,15 @@ import java.util.UUID;
 
 public class JobstoneTest extends JobstoneBase {
     // Text that appears when the item is hovered.
-    private static String hover_text = "";
+    private static String text = JobstoneHelper.getText("tester")[0];
+    private static String shift_text = JobstoneHelper.getText("tester")[1];
 
     // Constructor
     public JobstoneTest() {
         super(ItemTier.STONE, new Item.Properties()
                 .stacksTo(1)
                 .tab(Artifice.ARTIFICE_GROUP),
-                hover_text
+                text, shift_text
         );
     }
 

@@ -15,6 +15,25 @@
   "item.artifice.jobstone_scout_tier1": "Scout Jobstone: Tier 1",
   "item.artifice.jobstone_scout_tier2": "Scout Jobstone: Tier 2",
 
+  "item.artifice.jobstone_defender": "Defender Jobstone",
+  "item.artifice.jobstone_knight": "Knight Jobstone",
+  "item.artifice.jobstone_paladin": "Paladin Jobstone",
+
+  "item.artifice.jobstone_fighter": "Fighter Jobstone",
+  "item.artifice.jobstone_gladiator": "Gladiator Jobstone",
+  "item.artifice.jobstone_warrior": "Warrior Jobstone",
+  "item.artifice.jobstone_swordsman": "Swordsman Jobstone",
+
+  "item.artifice.jobstone_adventurer": "Adventurer Jobstone",
+  "item.artifice.jobstone_archer": "Archer Jobstone",
+  "item.artifice.jobstone_pugilist": "Pugilist Jobstone",
+  "item.artifice.jobstone_thief": "Thief Jobstone",
+
+  "item.artifice.jobstone_mage": "Mage Jobstone",
+  "item.artifice.jobstone_black_mage": "White Mage Jobstone",
+  "item.artifice.jobstone_white_mage": "Black Mage Jobstone",
+
+
   "item.artifice.materia_sword": "Materia Sword",
   "item.artifice.materia_pickaxe": "Materia Pickaxe",
 

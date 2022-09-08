@@ -4,6 +4,8 @@
   "item.artifice.materia_attack": "Attack Materia",
   "item.artifice.materia_dodge": "Dodge Materia",
 
+  "item.artifice.materia_bow_attack": "Bow Attack Materia",
+
   "item.artifice.materiacyant0": "Fragmented Cyan Materia",
   "item.artifice.materiacyant1": "Rough Cyan Materia",
   "item.artifice.materiacyant2": "Flawed Cyan Materia",
@@ -46,5 +48,6 @@
   "materia.extra_damage.name": "Attack Up",
   "materia.easy_dodge.name": "Easy Dodge",
 
-  "materia.apotheosis:fire_damage.name": "Flaming"
+  "materia.apotheosis:fire_damage.name": "Flaming",
+  "materia.apotheosis:snipe_damage.name": "Sniper"
 }

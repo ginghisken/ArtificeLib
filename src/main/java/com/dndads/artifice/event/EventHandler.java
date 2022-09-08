@@ -38,20 +38,6 @@ public class EventHandler {
         CompoundNBT checkedTag = itemStack.getTag();
     }
 
-    // WIP to modify arrow damage.
-    @SubscribeEvent
-    public static void modifyArrowDamage(ProjectileImpactEvent.Arrow event) {
-
-        AbstractArrowEntity firedArrow = event.getArrow();
-        // Entity arrowShooter = firedArrow.getOwner();
-
-        double additionalDamage = 8.0;
-
-        firedArrow.setBaseDamage(firedArrow.getBaseDamage() + additionalDamage);
-
-        System.out.println("Damage was added to arrow on hit.");
-    }
-
     // Display all tooltips based on materia additions.
     @OnlyIn(Dist.CLIENT)
     @SubscribeEvent(priority = EventPriority.HIGH)
@@ -102,6 +88,10 @@ public class EventHandler {
                     case "apotheosis:fire_damage":
                         addMateriaTooltip(tips, tag, TextFormatting.RED, TextFormatting.ITALIC);
                         break;
+                    case "apotheosis:snipe_damage":
+                        addMateriaTooltip(tips, tag, TextFormatting.YELLOW, TextFormatting.ITALIC);
+                        break;
+
                     default:
                         break;
                 }

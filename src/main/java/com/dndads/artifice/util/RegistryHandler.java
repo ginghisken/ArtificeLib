@@ -46,6 +46,8 @@ public class RegistryHandler {
     public static final RegistryObject<MateriaBase> MATERIA_ATTACK = ITEMS.register("materia_attack", AttackMateria::new);
     public static final RegistryObject<MateriaBase> MATERIA_DODGE = ITEMS.register("materia_dodge", DodgeMateria::new);
 
+    public static final RegistryObject<MateriaBase> MATERIA_BOW_ATTACK = ITEMS.register("materia_bow_attack", BowAttackMateria::new);
+
     // Jobstones
     public static final RegistryObject<JobstoneBase> JOBSTONE_TEST = ITEMS.register("jobstone_test", JobstoneTest::new);
     public static final RegistryObject<JobstoneBase> JOBSTONE_SCOUT_TIER1 = ITEMS.register("jobstone_scout_tier1", () -> new JobstoneScout(ItemTier.STONE));

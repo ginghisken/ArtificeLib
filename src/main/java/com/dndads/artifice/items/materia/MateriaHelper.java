@@ -23,4 +23,18 @@ public class MateriaHelper {
         return false;
     }
 
+    public static boolean itemIsBow(ItemStack stack){
+
+        String stackName = stack.getItem().toString();
+        System.out.println(stackName);
+
+        if (stackName.equals("bow")) {
+            System.out.println("SUCCESS");
+            return true;
+        } else {
+            System.out.println("FAILURE");
+            return false;
+        }
+    }
+
 }

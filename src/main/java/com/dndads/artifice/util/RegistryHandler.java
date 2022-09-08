@@ -5,13 +5,10 @@ import com.dndads.artifice.items.jobstone.JobstoneDefender;
 import com.dndads.artifice.items.jobstone.JobstoneScout;
 import com.dndads.artifice.items.jobstone.JobstoneTest;
 import com.dndads.artifice.items.jobstone.JobstoneBase;
-import com.dndads.artifice.items.materia.AttackMateria;
+import com.dndads.artifice.items.materia.*;
 import com.dndads.artifice.blocks.BlockItemBase;
 import com.dndads.artifice.blocks.MateriaBlock;
 import com.dndads.artifice.items.ItemBase;
-import com.dndads.artifice.items.materia.DodgeMateria;
-import com.dndads.artifice.items.materia.Materia;
-import com.dndads.artifice.items.materia.MateriaBase;
 import com.dndads.artifice.tools.ArtificeItemTier;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -39,7 +36,7 @@ public class RegistryHandler {
     public static final RegistryObject<Item> MATERIA2 = ITEMS.register("materia2", ItemBase::new);
 
     // texture testing
-    public static final RegistryObject<Materia> MATERIACYANT0 = ITEMS.register("materiacyant0", Materia::new);
+    public static final RegistryObject<MateriaBase> MATERIACYANT0 = ITEMS.register("materiacyant0", BowAttackMateria::new);
     public static final RegistryObject<Materia> MATERIACYANT1 = ITEMS.register("materiacyant1", Materia::new);
     public static final RegistryObject<Materia> MATERIACYANT2 = ITEMS.register("materiacyant2", Materia::new);
     public static final RegistryObject<Materia> MATERIACYANT3 = ITEMS.register("materiacyant3", Materia::new);

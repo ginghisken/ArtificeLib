@@ -1,14 +1,17 @@
 package com.dndads.artifice.event;
 
 import com.google.common.collect.Multimap;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.ai.attributes.Attribute;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
+import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.text.*;
 import net.minecraftforge.event.ItemAttributeModifierEvent;
+import net.minecraftforge.event.entity.ProjectileImpactEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -35,7 +38,19 @@ public class EventHandler {
         CompoundNBT checkedTag = itemStack.getTag();
     }
 
+    // WIP to modify arrow damage.
+    @SubscribeEvent
+    public static void modifyArrowDamage(ProjectileImpactEvent.Arrow event) {
 
+        AbstractArrowEntity firedArrow = event.getArrow();
+        // Entity arrowShooter = firedArrow.getOwner();
+
+        double additionalDamage = 8.0;
+
+        firedArrow.setBaseDamage(firedArrow.getBaseDamage() + additionalDamage);
+
+        System.out.println("Damage was added to arrow on hit.");
+    }
 
     // Display all tooltips based on materia additions.
     @OnlyIn(Dist.CLIENT)
